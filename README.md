@@ -6,6 +6,12 @@
 #### circle_hough
 Matlab exchange code for computing the circular hough transform
 
+#### distinguishable_colors
+Matlab exchange functions choose N distinguishable colors for plotting
+
+#### errorscatter.m
+Function to draw a scatterplot, with elliptical markers of width 'error' e.g. SEM
+
 #### html
 I don't remember what this is for
 
@@ -15,7 +21,7 @@ I don't remember what this is for
 #### matlab_git
 Matlab exchange code for calling git from the matlab command line
 
-#### mnist 
+#### mnist
 The MNIST dataset
 
 #### myeb.m
@@ -28,4 +34,4 @@ Function for saving the output of code running in parallel
 Laurens van der Maaten's code for t-SNE
 
 #### varycolor
-Matlab exchange function for setting the colours of multiple objects
+Matlab exchange function for choosing N smoothly varying colours for plots

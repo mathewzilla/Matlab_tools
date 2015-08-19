@@ -3,7 +3,7 @@ function myeb(Y,varargin);
 % myeb(Y,varargin);
 %
 % This function makes nice coloured, shaded error bars. Exactly what
-% it does depends on Y, and on whether you give it one or two inputs.
+% it does depends on Y, and on whether you give it one or more inputs.
 %
 % If you only pass it Y, and no other arguments, it assuemd you're
 % giving it raw data.
@@ -64,6 +64,10 @@ ccol=col+.8; ccol(ccol>1)=1;
 if length(varargin)==0;
     
     if length(size(Y))==2
+        if size(Y,2)>=8;
+            col = distinguishable_colors(size(Y,2));
+            ccol=col+.8; ccol(ccol>1)=1;
+        end
         m=mean(Y);
         s=std(Y);
         ind1=1:length(m);
@@ -73,6 +77,10 @@ if length(varargin)==0;
         plot(ind1,m,'linewidth',2)
         hold off
     elseif length(size(Y))>2
+        if size(Y,2)>=8;
+            col = distinguishable_colors(size(Y,2));
+            ccol=col+.8; ccol(ccol>1)=1;
+        end
         cla; hold on;
         ind1=1:size(Y,2);
         ind2=ind1(end:-1:1);
@@ -86,13 +94,16 @@ if length(varargin)==0;
         for k=1:size(Y,3)
             m=mean(Y(:,:,k));
             s=std(Y(:,:,k));
-            plot(ind1,m,'linewidth',2,'color',col(k,:))
+            plot(ind1,m,'linewidth',1,'color',col(k,:))
         end
         hold off
     end
     
 elseif length(varargin)==1;
-    
+    if size(Y,2)>=8;
+        col = distinguishable_colors(size(Y,2));
+        ccol=col+.8; ccol(ccol>1)=1;
+    end
     m=Y;
     s=varargin{1};
     if length(size(Y))>2;
@@ -118,7 +129,7 @@ elseif length(varargin)==1;
         for k=1:size(Y,2);
             mm=m(:,k)';
             ss=s(:,k)';
-            plot(ind1,mm,'linewidth',2,'color',col(k,:))
+            plot(ind1,mm,'linewidth',1,'color',col(k,:))
         end
         hold off
     end
@@ -212,7 +223,7 @@ elseif length(varargin)==4;
     color = varargin{3};
     colour = color(1:3);
     barcolour = varargin{4};
-  
+    
     if length(size(m))>2;
     elseif min(size(m))==1;
         if size(m,1)>1; m=m';s=s';end
