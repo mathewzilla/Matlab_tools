@@ -26,7 +26,7 @@ for i = 1:numel(X);
 %     % y values of each dot's patch object
 %     dot_y = [Y(i)-E_Y(i),Y(i),Y(i)+E_Y(i),Y(i)];
     
-    patch(dot_x,dot_y,C); % For similar face/edge colors use ,'edgecolor',C
+    patch(dot_x,dot_y,[.5,.5,.5],'edgecolor',C); % For similar face/edge colors use ,'edgecolor',C
     
     
 end
