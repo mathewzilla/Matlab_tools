@@ -172,7 +172,6 @@ elseif length(varargin)==2;
     end
     
 elseif length(varargin)==3;
-    
     xt = Y;
     m=varargin{1};
     s=varargin{2};
